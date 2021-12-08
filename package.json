@@ -1,6 +1,6 @@
 {
-  "name": "printnode-ts",
-  "version": "0.0.1",
+  "name": "@trieb.work/printnode-ts",
+  "version": "0.0.2",
   "description": "",
   "keywords": [],
   "main": "dist/printnode-ts.umd.js",
@@ -62,8 +62,7 @@
       "/node_modules/",
       "/test/"
     ],
-    "coverageThreshold": {
-    },
+    "coverageThreshold": {},
     "collectCoverageFrom": [
       "src/*.{js,ts}"
     ]
@@ -106,7 +105,7 @@
     "shelljs": "^0.8.3",
     "t": "^0.5.1",
     "travis-deploy-once": "^5.0.9",
-    "ts-jest": "^23.10.2",
+    "ts-jest": "^27.1.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
