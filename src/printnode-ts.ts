@@ -103,6 +103,9 @@ type Options = {
   fit_to_page?: boolean
   rotate?: Rotate
   paper?: string
+  bin?: string
+  media?: string
+  duplex?: 'long-edge' | 'short-edge' | 'one-sided'
 }
 
 export default class PrintNode {
@@ -174,6 +177,41 @@ export default class PrintNode {
         qty,
         options
       }
+    })
+    return response.data
+  }
+
+  printData = async ({
+    printerId,
+    title,
+    source,
+    qty = 1,
+    contentUrl,
+    base64Content,
+    options
+  }: {
+    printerId: string
+    title?: string
+    source?: string
+    options: Options
+    qty?: number
+    contentUrl?: string
+    base64Content?: string
+  }) => {
+    const data = {
+      printerId,
+      content: contentUrl ?? base64Content,
+      contentType: contentUrl ? 'pdf_uri' : 'pdf_base64',
+      title,
+      source,
+      qty,
+      options
+    }
+
+    const response = await this.instance({
+      url: '/printjobs',
+      method: 'POST',
+      data
     })
     return response.data
   }
